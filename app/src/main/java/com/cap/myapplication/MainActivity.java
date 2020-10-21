@@ -62,11 +62,13 @@ public class MainActivity extends AppCompatActivity implements ServiceConnection
         setContentView(R.layout.activity_main);
 
         receiveText = (TextView)findViewById(R.id.receive_text);
-        //receiveText = view.findViewById(R.id.receive_text);                          // TextView performance decreases with number of spans
+         
+		// TextView performance decreases with number of spans
         receiveText.setTextColor(getResources().getColor(R.color.colorRecieveText)); // set as default color to reduce number of spans
         receiveText.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         this.bindService(new Intent(getApplicationContext(), SerialService.class), this, Context.BIND_AUTO_CREATE);
+
 
         send_btn = (Button)findViewById(R.id.send_btn);
         send_text = (EditText)findViewById(R.id.send_text);
